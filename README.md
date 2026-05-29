@@ -1,4 +1,4 @@
-**Working Mechanism**
+**Secure Boot Scripts Working Mechanism**
 
 What the automated script does — step by step
 
