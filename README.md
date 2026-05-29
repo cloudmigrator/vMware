@@ -15,7 +15,8 @@
     Full VM snapshot before any change
     This is your complete rollback point
     If anything goes wrong after this → Rollback mode restores everything. 
-    > [!WARNING] BE CAREFUL ABOUT DB SERVERS
+    > [!WARNING] 
+    > BE CAREFUL ABOUT DB SERVERS
 
 [3] NVRAM rename  (.nvram → .nvram_old)
     Done via vSphere FileManager API (not inside the guest)
