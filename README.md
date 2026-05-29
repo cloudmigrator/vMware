@@ -1,6 +1,6 @@
 # Secure Boot Scripts Working Mechanism
 
-What the automated script does — step by step
+## What the automated script does — step by step
 
 [0] Preflight
     Checks ESXi version, HW version, firmware, Tools status, DC, BitLocker
@@ -62,7 +62,7 @@ What the automated script does — step by step
 
  
 
-**Safety analysis — what could go wrong and what protects you**
+## Safety analysis — what could go wrong and what protects you
 
 Risk 1 — VM won't boot after NVRAM change Protection: snapshot exists before any change. Run -Rollback and the VM is back to exactly where it was. .nvram_old is preserved, snapshot is reverted, VM powers on. Be very causious for DB servers. 
 
