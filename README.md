@@ -1,4 +1,4 @@
-**Working Mechanism **
+**Working Mechanism**
 
 What the automated script does — step by step
 
@@ -62,7 +62,7 @@ What the automated script does — step by step
 
  
 
-Safety analysis — what could go wrong and what protects you
+**Safety analysis — what could go wrong and what protects you**
 Risk 1 — VM won't boot after NVRAM change Protection: snapshot exists before any change. Run -Rollback and the VM is back to exactly where it was. .nvram_old is preserved, snapshot is reverted, VM powers on. Be very causious for DB servers. 
 
 Risk 2 — overrideOnce flag left on VMX Protection: the script clears it in finally{} — meaning it gets cleared even if PK enrollment throws an exception. The manual method uses allowAuthBypass = TRUE which is persistent and broader — it bypasses all auth, not just PK enrollment.
