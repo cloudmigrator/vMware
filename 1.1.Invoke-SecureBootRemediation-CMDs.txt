@@ -1,0 +1,25 @@
+# Connect-VIServer YOUR VCENTER URL
+
+
+Please check the PowerShell code to understand how each command works. 
+
+
+# Step 1 -- run preflight only, no changes
+.\Invoke-SecureBootRemediation.ps1 -PreflightOnly
+
+
+# Step 2 -- single test VM with retained snapshot
+$cred = Get-Credential
+.\Invoke-SecureBootRemediation.ps1 -VMName "SUNNYHANDA" -GuestCredential $cred -RetainSnapshots -PKDerPath ".\WindowsOEMDevicesPK.der"
+
+# Step 3 -- bulk batch via CSV (after test validates)
+.\Invoke-SecureBootRemediation.ps1 -VMListCsv ".\batch1.csv" -GuestCredential $cred -RetainSnapshots -PKDerPath ".\WindowsOEMDevicesPK.der"
+
+# Step 4 -- cleanup snapshots after a few days of validation
+.\Invoke-SecureBootRemediation.ps1 -VMListCsv ".\SecureBoot_Remediation_20260527_223723.csv" -CleanupSnapshots
+
+# Step 5 -- cleanup old NVRAM files AFTER snapshots are gone
+.\Invoke-SecureBootRemediation.ps1 -VMListCsv ".\SecureBoot_Remediation_20260527_223723.csv" -CleanupNvram
+
+# Rollback if needed
+.\Invoke-SecureBootRemediation.ps1 -VMName "TESTVM01" -Rollback
